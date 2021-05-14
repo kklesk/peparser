@@ -96,21 +96,26 @@ struct PeImageSectionTable{
     number_of_relocations: u16,
     number_of_line_numbers: u16,
     charachteristics: u32,
+
 }
 
+// Section Data
 struct PeImageSectionHdr{
     virtual_address: u32,
     symbol_table_index: u32,
     type_indicator: u16,
+    //TODO
+    // Auxiliary Symbol Records
 }
 
 
 /// PE data directory header
+/*
 struct PeImageDataDir{
     virtual_address: u32,
     size: u32,
 }
-
+*/
 
     #[test]
     fn it_works() {
