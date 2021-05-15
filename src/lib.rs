@@ -1,5 +1,7 @@
+/*
 #[cfg(test)]
-mod peparser {
+*/
+pub mod peparser {
 use std::u32;
 
 
@@ -17,7 +19,7 @@ pub struct PeImageFileHdr{
     size_of_optional_header: u16,
     characteristics: u16,
 }
-//!File Headers 32 bit compiled
+// File Headers 32 bit compiled
 pub struct PeImageOptionalFileHdr32{
     magic: u16,
     major_linker_version: u8,
@@ -51,7 +53,7 @@ pub struct PeImageOptionalFileHdr32{
     Before looking for a specific directory, check the NumberOfRvaAndSizes field in the optional header. */
     number_of_rva_and_sizes: u32, 
 }
-//!File Headers 64 bit compiled
+// File Headers 64 bit compiled
 pub struct PeImageOptionalFileHdr64{
     magic: u16,
     major_linker_version: u8,
@@ -85,7 +87,7 @@ pub struct PeImageOptionalFileHdr64{
     number_of_rva_and_sizes: u32, 
 }
 
-//! Section Table (Section Headers)
+// Section Table (Section Headers)
 pub struct PeImageSectionTable{
     name: u32,
     virtual_size: u32,
@@ -100,7 +102,9 @@ pub struct PeImageSectionTable{
 
 }
 
-//! Section Data
+/*
+Section Data
+*/
 pub struct PeImageSectionHdr{
     virtual_address: u32,
     symbol_table_index: u32,
@@ -109,7 +113,7 @@ pub struct PeImageSectionHdr{
     // Auxiliary Symbol Records
 }
 
-//! The Attribute Certificate Table (Image Only)
+// The Attribute Certificate Table (Image Only)
 pub struct PeImageCertificateHdr{
     dw_length: u32,
     w_revision: u16,
@@ -123,14 +127,12 @@ struct PeImageDataDir{
     size: u32,
 }
 */
+pub fn hello(){
+    println!("HELLO From module peparser");
+}
 
-    #[test]
-
-
-
-
-
-    fn it_works() {
+#[test]
+pub fn it_works() {
         assert_eq!(2 + 2, 4);
     }
 }
