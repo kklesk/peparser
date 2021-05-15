@@ -7,7 +7,7 @@ use std::u32;
 /// https://docs.microsoft.com/en-us/windows/win32/debug/pe-format
 /// COFF File Header (Object and Image)
 
-struct PeImageFileHdr{
+pub struct PeImageFileHdr{
 
     magic: u32,
     machine: u16,
@@ -17,8 +17,8 @@ struct PeImageFileHdr{
     size_of_optional_header: u16,
     characteristics: u16,
 }
-
-struct PeImageOptionalFileHdr32{
+//!File Headers 32 bit compiled
+pub struct PeImageOptionalFileHdr32{
     magic: u16,
     major_linker_version: u8,
     minor_linker_version : u8,
@@ -51,8 +51,8 @@ struct PeImageOptionalFileHdr32{
     Before looking for a specific directory, check the NumberOfRvaAndSizes field in the optional header. */
     number_of_rva_and_sizes: u32, 
 }
-
-struct PeImageOptionalFileHdr64{
+//!File Headers 64 bit compiled
+pub struct PeImageOptionalFileHdr64{
     magic: u16,
     major_linker_version: u8,
     minor_linker_version : u8,
@@ -85,7 +85,8 @@ struct PeImageOptionalFileHdr64{
     number_of_rva_and_sizes: u32, 
 }
 
-struct PeImageSectionTable{
+//! Section Table (Section Headers)
+pub struct PeImageSectionTable{
     name: u32,
     virtual_size: u32,
     virtual_address: u32,
@@ -99,8 +100,8 @@ struct PeImageSectionTable{
 
 }
 
-// Section Data
-struct PeImageSectionHdr{
+//! Section Data
+pub struct PeImageSectionHdr{
     virtual_address: u32,
     symbol_table_index: u32,
     type_indicator: u16,
@@ -108,6 +109,12 @@ struct PeImageSectionHdr{
     // Auxiliary Symbol Records
 }
 
+//! The Attribute Certificate Table (Image Only)
+pub struct PeImageCertificateHdr{
+    dw_length: u32,
+    w_revision: u16,
+    w_certificate_type: u16,
+}
 
 /// PE data directory header
 /*
@@ -118,6 +125,11 @@ struct PeImageDataDir{
 */
 
     #[test]
+
+
+
+
+
     fn it_works() {
         assert_eq!(2 + 2, 4);
     }
